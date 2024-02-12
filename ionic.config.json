@@ -1,0 +1,7 @@
+{
+  "name": "moteurresearch",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue-vite"
+}
