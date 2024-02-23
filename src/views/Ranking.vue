@@ -25,6 +25,7 @@ import { computed, defineComponent } from 'vue';
 import { IonContent, IonPage} from '@ionic/vue';
 import { useStore } from 'vuex';
 import TheMenu from '../components/Menu.vue';
+
 const store = useStore();
 const articles = computed(() => store.getters.getArticles);
 defineComponent({
