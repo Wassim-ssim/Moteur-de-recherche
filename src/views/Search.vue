@@ -6,7 +6,7 @@
       </ion-toolbar>
     </ion-header>
     <ion-content :fullscreen="true">
-      <HomePage />
+      <SearchePage />
     </ion-content>
     <ion-foot>
       <ion-toolbar>
@@ -21,7 +21,7 @@ import { computed, defineComponent } from 'vue';
 import { IonContent, IonPage } from '@ionic/vue';
 import { useStore } from 'vuex';
 import TheMenu from '../components/Menu.vue';
-import HomePage from '@/components/homePage/HomePage.vue';
+import SearchePage from '@/components/searchPage/SearchPage.vue';
 const store = useStore();
 const articles = computed(() => store.getters.getArticles);
 defineComponent({

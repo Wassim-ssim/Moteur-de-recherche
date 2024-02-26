@@ -6,11 +6,7 @@
       </ion-toolbar>
     </ion-header>
     <ion-content :fullscreen="true">
-      <input type="text" placeholder="Rechercher ..." />
-      <div v-for="article in articles" :key="article.id">
-          <h2>{{ article.title }}</h2>
-          <p>{{ article.content }}</p>
-        </div>
+      <RankingPage />
     </ion-content>
     <ion-foot>
       <ion-toolbar>
@@ -22,25 +18,23 @@
 
 <script setup lang="ts">
 import { computed, defineComponent } from 'vue';
-import { IonContent, IonPage} from '@ionic/vue';
+import { IonContent, IonPage } from '@ionic/vue';
 import { useStore } from 'vuex';
 import TheMenu from '../components/Menu.vue';
-
+import RankingPage from '@/components/rankingPage/RankingPage.vue';
 const store = useStore();
 const articles = computed(() => store.getters.getArticles);
 defineComponent({
   components: {
-      TheMenu
+    TheMenu,
   },
 });
-
-
 </script>
 
 <style scoped>
 #container {
   text-align: center;
-  
+
   position: absolute;
   left: 0;
   right: 0;
@@ -56,9 +50,9 @@ defineComponent({
 #container p {
   font-size: 16px;
   line-height: 22px;
-  
+
   color: #8c8c8c;
-  
+
   margin: 0;
 }
 

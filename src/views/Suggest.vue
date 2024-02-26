@@ -6,11 +6,7 @@
       </ion-toolbar>
     </ion-header>
     <ion-content :fullscreen="true">
-      <input type="text" placeholder="Rechercher ..." />
-      <div v-for="article in articles" :key="article.id">
-          <h2>{{ article.title }}</h2>
-          <p>{{ article.content }}</p>
-        </div>
+      <SuggestionPage />
     </ion-content>
     <ion-foot>
       <ion-toolbar>
@@ -21,16 +17,17 @@
 </template>
 
 <script setup lang="ts">
-import { computed,defineComponent } from 'vue';
-import { IonContent, IonPage} from '@ionic/vue';
+import { computed, defineComponent } from 'vue';
+import { IonContent, IonPage } from '@ionic/vue';
 import { useStore } from 'vuex';
 import TheMenu from '../components/Menu.vue';
+import SuggestionPage from '@/components/suggestionPage/SuggestionPage.vue';
 
 const store = useStore();
 const articles = computed(() => store.getters.getArticles);
 defineComponent({
   components: {
-      TheMenu
+    TheMenu,
   },
 });
 </script>
@@ -38,7 +35,7 @@ defineComponent({
 <style scoped>
 #container {
   text-align: center;
-  
+
   position: absolute;
   left: 0;
   right: 0;
@@ -54,9 +51,9 @@ defineComponent({
 #container p {
   font-size: 16px;
   line-height: 22px;
-  
+
   color: #8c8c8c;
-  
+
   margin: 0;
 }
 

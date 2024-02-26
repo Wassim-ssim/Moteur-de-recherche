@@ -1,33 +1,39 @@
+import SearchVue from '@/views/Search.vue';
 import { createRouter, createWebHistory } from '@ionic/vue-router';
 import { RouteRecordRaw } from 'vue-router';
 import HomePage from '../views/HomePage.vue';
 import Ranking from '../views/Ranking.vue';
-import Suggest from '../views/Suggest.vue'
+import Suggest from '../views/Suggest.vue';
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    redirect: '/home'
+    redirect: '/home',
   },
   {
     path: '/home',
     name: 'Home',
-    component: HomePage
+    component: HomePage,
   },
   {
     path: '/classement',
     name: 'Classement',
-    component: Ranking
+    component: Ranking,
+  },
+  {
+    path: '/Recherche',
+    name: 'Recherche',
+    component: SearchVue,
   },
   {
     path: '/suggestion',
     name: 'Suggestions',
-    component: Suggest
-  }
-]
+    component: Suggest,
+  },
+];
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  routes
-})
+  routes,
+});
 
-export default router
+export default router;
